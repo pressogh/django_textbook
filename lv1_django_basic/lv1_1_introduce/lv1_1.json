@@ -133,8 +133,20 @@
 							"description": "<p>가상환경을 활성화 시켜봅시다.</p><p><br></p><p>터미널에 아래의 명령어를 입력해주세요</p>"
 						},
 						{
+							"type": "desc",
+							"description": "<p><span style=\"background-color: rgb(204, 224, 245);\">Windows</span></p>"
+						},
+						{
 							"type": "code",
 							"code": "~~~python \ncd ./venv/Scripts\nactivate\n ~~~"
+						},
+						{
+							"type": "desc",
+							"description": "<p><span style=\"background-color: rgb(235, 214, 255);\">Mac</span></p>"
+						},
+						{
+							"type": "code",
+							"code": "~~~python \ncd ./venv/Scripts\nsource activate\n ~~~"
 						},
 						{
 							"type": "desc",

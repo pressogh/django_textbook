@@ -127,7 +127,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~python \n# <config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n]\n ~~~"
+							"code": "~~~python \n# <djangostudy/config/config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n]\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -135,7 +135,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~python \n# <config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path\n\nfrom study import views # study폴더의 views.py를 임포트\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', views.HelloView),  # 기본 경로로 요청이 오면 views.HelloView에서 반환한 값을 화면에 보여줌\n]\n ~~~"
+							"code": "~~~python \n# <djangostudy/config/config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path\n\nfrom study import views # study폴더의 views.py를 임포트\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', views.HelloView),  # 기본 경로로 요청이 오면 views.HelloView에서 반환한 값을 화면에 보여줌\n]\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -151,7 +151,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~python \n# <config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path, include\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('study.urls')),  # 기본 경로로 요청이 오면 study.urls에 연결\n]\n ~~~"
+							"code": "~~~python \n# <djangostudy/config/config/urls.py>\n\nfrom django.contrib import admin\nfrom django.urls import path, include\n\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('study.urls')),  # 기본 경로로 요청이 오면 study.urls에 연결\n]\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -159,7 +159,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~python \n# <study/urls.py>\n\nfrom django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('', views.HelloView)\n]\n ~~~"
+							"code": "~~~python \n# <djangostudy/config/study/urls.py>\n\nfrom django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('', views.HelloView)\n]\n ~~~"
 						},
 						{
 							"type": "desc",
