@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Detail</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div>{{ post.content }}</div>
+
+    <div>
+        <ul>
+            {% for comment in post.comment_set.all %}
+            <li>{{ comment.content }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

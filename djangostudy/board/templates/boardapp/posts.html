@@ -1,0 +1,16 @@
+<!-- templates/boardapp/posts.html -->
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+    <ul>
+    {% for post in post_list %}
+        <li><a href="{% url 'boardapp:detail' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
