@@ -1,10 +1,10 @@
 # < boardapp/views.py >
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Post, Comment
-from .forms import PostUploadForm
+from .forms import PostUploadForm, CommentUploadForm
 
 # Create your views here.
 
@@ -16,7 +16,7 @@ def index(request):
 
 def PostDetailView(request, post_id):
     post = Post.objects.get(id=post_id)
-    data = {'post': post}
+    data = {'post': post, 'commentuploadform': CommentUploadForm()}
 
     return render(request, 'boardapp/post_detail.html', data)
 
@@ -32,3 +32,13 @@ def PostUploadView(request):
             post = form.save(commit=False)  # post에 form의 데이터를 넣어주고
             post.save() # post를 저장
         return redirect('boardapp:index') # 메인 페이지로 이동
+
+def CommentUploadView(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    form = CommentUploadForm(request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.post = post
+        comment.save()
+        
+        return redirect("boardapp:detail", post_id=post_id)
