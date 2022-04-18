@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 from .models import Post, Comment
 from .forms import PostUploadForm, CommentUploadForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -42,3 +43,22 @@ def CommentUploadView(request, post_id):
         comment.save()
         
         return redirect("boardapp:detail", post_id=post_id)
+
+@login_required(login_url="accounts:login")
+def PostDeleteView(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.user != post.author:
+        return redirect('boardapp:detail', post_id=post.id)
+    
+    post.delete()
+    return redirect('boardapp:index')
+    
+@login_required(login_url="accounts:login")
+def CommentDeleteView(request, comment_id, post_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.user != comment.author:
+        return redirect('boardapp:detail', post_id=post_id)
+    
+    comment.delete()
+    return redirect('boardapp:detail', post_id=post_id)
+    
