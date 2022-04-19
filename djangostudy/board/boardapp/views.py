@@ -21,6 +21,7 @@ def PostDetailView(request, post_id):
 
     return render(request, 'boardapp/post_detail.html', data)
 
+@login_required(login_url="accounts:login")
 def PostUploadView(request):
     if request.method == 'GET':
         form = {"form": PostUploadForm()}
@@ -31,15 +32,20 @@ def PostUploadView(request):
         form = PostUploadForm(request.POST) # request.POST에 있는 데이터를 form에 저장
         if form.is_valid(): # form의 데이터가 정상이라면
             post = form.save(commit=False)  # post에 form의 데이터를 넣어주고
+            post.author = request.user
+
             post.save() # post를 저장
         return redirect('boardapp:index') # 메인 페이지로 이동
 
+@login_required(login_url="accounts:login")
 def CommentUploadView(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     form = CommentUploadForm(request.POST)
     if form.is_valid():
         comment = form.save(commit=False)
         comment.post = post
+        comment.author = request.user
+
         comment.save()
         
         return redirect("boardapp:detail", post_id=post_id)
@@ -62,3 +68,25 @@ def CommentDeleteView(request, comment_id, post_id):
     comment.delete()
     return redirect('boardapp:detail', post_id=post_id)
     
+
+@login_required(login_url="accounts:login")
+def PostLikeView(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    if request.user in post.likes_user.all():
+            post.likes_user.remove(request.user)
+    else:
+        post.likes_user.add(request.user)
+
+    return redirect('boardapp:detail', post_id=post.id)
+
+@login_required(login_url="accounts:login")
+def CommentLikeView(request, comment_id, post_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if request.user in comment.likes_user.all():
+            comment.likes_user.remove(request.user)
+    else:
+        comment.likes_user.add(request.user)
+
+    return redirect('boardapp:detail', post_id=post_id)
