@@ -237,6 +237,21 @@
 					]
 				},
 				{
+					"title": "게시글 업로드 Form",
+					"tags": [],
+					"collapse": false,
+					"components": [
+						{
+							"type": "desc",
+							"description": "<p>post/forms.py 파일을 생성하고, <strong style=\"color: rgb(102, 185, 102);\">forms.ModelForm</strong><strong>을 상속받고</strong> <strong>필드를</strong><strong style=\"color: rgb(102, 163, 224);\"> \"caption\", \"image\"</strong><strong>로 가지는</strong><strong style=\"color: rgb(102, 163, 224);\"> </strong></p><p><strong style=\"color: rgb(240, 102, 102);\">NewPostForm</strong>을 만들어 보세요.</p>"
+						},
+						{
+							"type": "desc",
+							"description": "<p><br></p><p><br></p><p><span style=\"background-color: rgb(255, 255, 204);\">new_post view에서 new_post.html을 랜더링 할 때</span>, <strong style=\"color: rgb(240, 102, 102);\">NewPostForm</strong>을 생성하여 연결해 줍니다.</p>"
+						}
+					]
+				},
+				{
 					"title": "게시글 업로드 View",
 					"tags": [],
 					"collapse": false,
@@ -264,21 +279,6 @@
 						{
 							"type": "desc",
 							"description": "<p><strong>post/views의 index 함수의 렌더링 템플릿도 base.html이 아닌 main.html로 바꾸어주세요.</strong></p>"
-						}
-					]
-				},
-				{
-					"title": "게시글 업로드 Form",
-					"tags": [],
-					"collapse": false,
-					"components": [
-						{
-							"type": "desc",
-							"description": "<p>post/forms.py 파일을 생성하고, <strong style=\"color: rgb(102, 185, 102);\">forms.ModelForm</strong><strong>을 상속받고</strong> <strong>필드를</strong><strong style=\"color: rgb(102, 163, 224);\"> \"caption\", \"image\"</strong><strong>로 가지는</strong><strong style=\"color: rgb(102, 163, 224);\"> </strong></p><p><strong style=\"color: rgb(240, 102, 102);\">NewPostForm</strong>을 만들어 보세요.</p>"
-						},
-						{
-							"type": "desc",
-							"description": "<p><br></p><p><br></p><p><span style=\"background-color: rgb(255, 255, 204);\">new_post view에서 new_post.html을 랜더링 할 때</span>, <strong style=\"color: rgb(240, 102, 102);\">NewPostForm</strong>을 생성하여 연결해 줍니다.</p>"
 						}
 					]
 				},
