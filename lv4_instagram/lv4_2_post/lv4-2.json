@@ -237,6 +237,21 @@
 					]
 				},
 				{
+					"title": "미디어 파일 설정",
+					"tags": [],
+					"collapse": false,
+					"components": [
+						{
+							"type": "desc",
+							"description": "<p>모델에서 ImageField를 사용하여 이미지나 파일을 저장하기 위해선, <strong style=\"background-color: rgb(255, 255, 204);\">사용자가 업로드한 파일을 저장할 경로를 지정</strong>해 주어야 합니다.</p><p><br></p><p>settings.py에서 정적 파일인 STATIC을 설정한 것처럼 사용자가 업로드한 파일을 저장할 경로를 지정해 줍시다.</p>"
+						},
+						{
+							"type": "code",
+							"code": "~~~python \n# < config/settings.py >\n\n(...생략...)\n\nSTATIC_URL = '/static/'\n\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n\n ~~~"
+						}
+					]
+				},
+				{
 					"title": "게시글 업로드 Form",
 					"tags": [],
 					"collapse": false,
