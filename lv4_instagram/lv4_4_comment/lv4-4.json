@@ -150,7 +150,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~python \n    path('<int:comment_id>/delete_comment', views.comment_delete, name=\"delete_comment\"),\n ~~~"
+							"code": "~~~python \n    path('<int:comment_id>/delete_comment', views.delete_comment, name=\"delete_comment\"),\n ~~~"
 						},
 						{
 							"type": "desc",
