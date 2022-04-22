@@ -84,7 +84,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\n# Create your views here.\n\ndef index(request):\n    return render(request, 'boardapp/posts.html')\n ~~~"
+							"code": "~~~python \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\n# Create your views here.\n\ndef index(request):\n    return render(request, 'boardapp/posts.html')\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -103,7 +103,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\nfrom .models import Post\n\n# Create your views here.\n\ndef index(request):\n    post_list = Post.objects.order_by('-create_time')\n    post_dict = {\"post_list\": post_list}\n    \n    return render(request, 'boardapp/posts.html', post_dict)\n ~~~"
+							"code": "~~~python \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\nfrom .models import Post\n\n# Create your views here.\n\ndef index(request):\n    post_list = Post.objects.order_by('-create_time')\n    post_dict = {\"post_list\": post_list}\n    \n    return render(request, 'boardapp/posts.html', post_dict)\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -151,7 +151,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\nfrom .models import Post\n\n# Create your views here.\n\ndef index(request):\n    post_list = Post.objects.order_by('-create_time')\n    post_dict = {\"post_list\": post_list}\n\n    return render(request, 'boardapp/posts.html', post_dict)\n\ndef PostDetailView(request, post_id):\n    post = Post.objects.get(id=post_id)\n    data = {'post': post}\n\n    return render(request, 'boardapp/post_detail.html', data)\n ~~~"
+							"code": "~~~python \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\nfrom .models import Post\n\n# Create your views here.\n\ndef index(request):\n    post_list = Post.objects.order_by('-create_time')\n    post_dict = {\"post_list\": post_list}\n\n    return render(request, 'boardapp/posts.html', post_dict)\n\ndef PostDetailView(request, post_id):\n    post = Post.objects.get(id=post_id)\n    data = {'post': post}\n\n    return render(request, 'boardapp/post_detail.html', data)\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -193,7 +193,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('', views.index), # views.py의 index함수와 연결\n    path('/<int:post_id>/', views.PostDetailView)   # views.py의 PostDetailView 함수와 연결\n]\n ~~~"
+							"code": "~~~python \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('', views.index), # views.py의 index함수와 연결\n    path('/<int:post_id>/', views.PostDetailView)   # views.py의 PostDetailView 함수와 연결\n]\n ~~~"
 						},
 						{
 							"type": "desc",
@@ -220,7 +220,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\napp_name = 'boardapp'\n\nurlpatterns = [\n    path('', views.index, name=\"index\"), # views.py의 index함수와 연결\n    path('/<int:post_id>/', views.PostDetailView, name=\"detail\")   # views.py의 PostDetailView 함수와 연결\n]\n ~~~"
+							"code": "~~~python \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\napp_name = 'boardapp'\n\nurlpatterns = [\n    path('', views.index, name=\"index\"), # views.py의 index함수와 연결\n    path('/<int:post_id>/', views.PostDetailView, name=\"detail\")   # views.py의 PostDetailView 함수와 연결\n]\n ~~~"
 						},
 						{
 							"type": "desc",
