@@ -101,6 +101,10 @@
 						{
 							"type": "code",
 							"code": "~~~html \n{% load static %}\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static 'css/post/base.css'%}\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static 'css/post/header.css'%}\">\n\n    <!-- 아이콘에 필요한 Font Awesome 링크  -->\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n    <title>Document</title>\n</head>\n<body>\n    <div class=\"header-container\">\n        {% include \"post/header.html\" %}\n    </div>\n</body>\n</html>\n ~~~"
+						},
+						{
+							"type": "desc",
+							"description": "<p>여기서 사용된 include 태그는 <strong style=\"background-color: rgb(255, 255, 204);\">다른 html 파일의 코드를 그 자리에 그대로 넣어주는 역할을 하는 태그입니다.</strong></p>"
 						}
 					]
 				},
