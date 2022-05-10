@@ -7,8 +7,8 @@ from django.db.models import Q
 
 # Create your views here.
 def index(request) :
-  if request.method == "GET" :
-    if request.user.is_authenticated :
+  if request.method == "GET":
+    if request.user.is_authenticated:
       user = get_object_or_404(User, pk=request.user.id)
       following_users = user.following.all()
       # 생략
@@ -20,6 +20,7 @@ def index(request) :
       print(serializer.data)
 
       return render(request, 'post/main.html', {"posts": serializer.data})
+  return render(request, 'post/main.html')
 
 def new_post(request) :
   if request.method == 'GET' :

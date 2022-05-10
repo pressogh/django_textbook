@@ -83,7 +83,7 @@
 					"components": [
 						{
 							"type": "desc",
-							"description": "<p>Django를 설치하기 위해 먼저 가상환경을 설치해줍시다.</p><p><br></p><p>가상환경이란<span style=\"background-color: rgb(255, 255, 204);\"> 독립적인 파이썬 실행 환경</span>을 의미하고, 프로젝트의 모듈 관리를 편리하게 하기 위해서 사용합니다,</p>"
+							"description": "<p>Django를 설치하기 위해 먼저 가상환경을 설치해줍시다.</p><p><br></p><p>가상환경이란<span style=\"background-color: rgb(255, 255, 204);\"> 독립적인 파이썬 실행 환경</span>을 의미하고, 프로젝트의 모듈 관리를 편리하게 하기 위해서 사용합니다.</p>"
 						},
 						{
 							"type": "desc",
