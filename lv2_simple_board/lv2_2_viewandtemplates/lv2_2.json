@@ -112,6 +112,11 @@
 							"description": "<p>이제 데이터베이스에 있는 Post를 화면에 표시해 봅시다.</p><p><br></p><p>Post 들을 화면에 표시하기 위해 view에서 <strong style=\"background-color: rgb(255, 255, 204);\">Post 데이터들을 데이터베이스에서 꺼낸 후, render 함수의 세번째 인자로 posts.html에 전송하는 작업</strong>이 필요합니다.</p>"
 						},
 						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "9"
+						},
+						{
 							"type": "code",
 							"code": "~~~python \n# < boardapp/views.py >\n\nfrom django.shortcuts import render\nfrom django.http import HttpResponse\n\nfrom .models import Post\n\n# Create your views here.\n\ndef index(request):\n    post_list = Post.objects.order_by('-create_time')\n    post_dict = {\"post_list\": post_list}\n    \n    return render(request, 'boardapp/posts.html', post_dict)\n ~~~"
 						},
@@ -137,6 +142,11 @@
 						{
 							"type": "desc",
 							"description": "<p><br></p><p>html 코드를 보면<strong style=\"background-color: rgb(255, 255, 204);\"> 반복의 기능을 수행하는 템플릿 태그인 for 태그</strong>가 있습니다.</p><p><br></p><p>for 태그는<strong style=\"background-color: rgb(255, 255, 204);\"> for 태그 안에 있는 html코드를 반복하여 출력하는 역할</strong>을 하는데, 여기서는 post_list안에 있는 데이터들을 반복하여 각 post의 title을 출력해 줍니다.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "9"
 						},
 						{
 							"type": "desc",
@@ -166,6 +176,11 @@
 						{
 							"type": "desc",
 							"description": "<p>추가된 코드를 보면 <strong style=\"color: rgb(0, 138, 0);\">PostDetailView </strong>는 인자로 post_id를 추가로 받습니다.</p><p><br></p><p>함수 안에선 Model에 정의된 <strong style=\"color: rgb(0, 138, 0);\">get </strong>메소드를 이용해 <strong style=\"background-color: rgb(255, 255, 204);\">데이터베이스에 있는 전체 Post 중 id가 인자로 받은 post_id인 post만 가져와 줍니다.</strong></p><p><br></p><p>그 후, post를 dict형태로 post_detail.html에 넘겨 줍니다.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "9"
 						}
 					]
 				},
@@ -341,6 +356,11 @@
 						{
 							"type": "code",
 							"code": "~~~python \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\napp_name = 'boardapp'\n\nurlpatterns = [\n    path('', views.index, name=\"index\"), # views.py의 index함수와 연결\n    path('/<int:post_id>/', views.PostDetailView, name=\"detail\"),   # views.py의 PostDetailView 함수와 연결\n    \n    # path함수를 이용해 '/post_upload'경로로 요청이 올 경우 PostUploadView로 연결해 주도록\n    # 코드를 수정해보세요!\n    # url별칭은 'upload'로 해주세요\n    path()\n]\n ~~~"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1093",
+							"indicator": "9"
 						}
 					]
 				},

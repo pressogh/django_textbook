@@ -54,6 +54,11 @@
 						{
 							"type": "desc",
 							"description": "<p>정답은 Serializer를 수정하여 <strong style=\"color: rgb(102, 163, 224);\">Post모델</strong><strong>의 </strong><strong style=\"color: rgb(102, 163, 224);\">likes필드 정보</strong>를 가져오는 것입니다.</p><p><br></p><p><br></p><p>post/serializer.py 의 PostSerializer의 필드에<strong> \"likes\"</strong> 를 추가해주세요.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1099",
+							"indicator": "4"
 						}
 					]
 				},
@@ -104,6 +109,11 @@
 						{
 							"type": "code",
 							"code": "~~~python \ndef post_like(request, post_id):\n    # 로그인된 유저라면\n      post = # post_id를 pk로 하며 Post 불러오기\n\n      if request.user in post.likes.all():\n          post.likes.remove(request.user)\n      else:\n          post.likes.add(request.user)\n      return redirect(reverse('post:index'))\n    else:\n      return redirect(reverse('account:login'))\n ~~~"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1098",
+							"indicator": "13"
 						},
 						{
 							"type": "desc",

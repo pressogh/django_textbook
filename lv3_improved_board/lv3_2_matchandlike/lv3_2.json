@@ -41,6 +41,11 @@
 							"description": "<p>작성자를 표시하기 위해선 Post와 Comment모델에<strong style=\"background-color: rgb(255, 255, 204);\"> author이라는 필드를 만들고, ForeignKey로 User모델과 연결</strong>해 주어야 합니다.</p><p><br></p><p>boardapp/models.py의 Post와 Comment모델에 author 필드를 추가해 줍시다.</p>"
 						},
 						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "6"
+						},
+						{
 							"type": "code",
 							"code": "~~~python \n# < boardapp/models.py >\n\nfrom django.db import models\nfrom django.contrib.auth.models import User\n\nclass Post(models.Model):\n    author = models.ForeignKey(User, on_delete=models.CASCADE)\n    title = models.CharField(max_length=100)\n    content = models.TextField()\n    create_time = models.DateTimeField(auto_now_add=True)\n\n    def __str__(self):\n        return self.title\n\n\nclass Comment(models.Model):\n    author = models.ForeignKey(User, on_delete=models.CASCADE)\n    post = models.ForeignKey(Post, on_delete=models.CASCADE)\n    content = models.TextField()\n    create_time = models.DateTimeField(auto_now_add=True)\n ~~~"
 						},
@@ -51,6 +56,11 @@
 						{
 							"type": "desc",
 							"description": "<p><br></p><p>makemigrations를 해주었으니 migrate를 해 줍시다.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "6"
 						}
 					]
 				},
@@ -141,6 +151,11 @@
 						{
 							"type": "code",
 							"code": "~~~python \n# < boardapp/urls.py >\n\nfrom django.urls import path\nfrom . import views\n\napp_name = 'boardapp'\n\nurlpatterns = [\n    path('', views.index, name=\"index\"), # views.py의 index함수와 연결\n    path('<int:post_id>', views.PostDetailView, name=\"detail\"),   # views.py의 PostDetailView 함수와 연결\n    path('post_upload', views.PostUploadView, name=\"upload\"),    # # views.py의 PostUploadView 함수와 연결\n    path('<int:post_id>/comment_create', views.CommentUploadView, name='comment_upload'),\n    # '/포스트 아이디/delete'경로를 PostDeleteView와 연결해주세요\n    # 별칭은 'post_delete'로 해주세요!\n    path(),\n]\n ~~~"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1092",
+							"indicator": "10"
 						}
 					]
 				},
@@ -179,6 +194,11 @@
 						{
 							"type": "code",
 							"code": "~~~python \n# < boardapp/views.py >\n\n(...생략...)\n\n# 로그인된 사용자인 경우에만 접근할 수 있도록 데코레이터 추가\ndef CommentDeleteView(request, comment_id, post_id):\n    comment = # comment_id를 pk로 하여 comment 불러오기\n    # 작성자인지 판별하여 작성자가 아니라면\n        return redirect('boardapp:detail', post_id=post_id)\n    # 댓글 지우기\n    comment. # 뒤의 메소드를 추가해주세요\n    return redirect('boardapp:detail', post_id=post_id)\n ~~~"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1096",
+							"indicator": "3"
 						},
 						{
 							"type": "code",

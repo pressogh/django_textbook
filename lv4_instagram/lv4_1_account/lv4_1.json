@@ -188,6 +188,11 @@
 						{
 							"type": "desc",
 							"description": "<p>config/urls.py 와 account.urls.py 를 수정하여 </p><p><strong>account/login/ 를 로그인 경로로 설정합니다.</strong></p><p><br></p><p>뷰는 이전 게시판과 같이 <strong>django.contrib.auth.views</strong>를 사용합니다.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "5"
 						}
 					]
 				},
@@ -247,6 +252,11 @@
 						{
 							"type": "desc",
 							"description": "<p>account.urls.py 를 수정하여</p><p><strong>account/signup/ 를 회원가입 경로로 설정합니다.</strong></p><p><br></p><p>뷰는 뒤에서 만들 views.signup함수와 연결해줍니다.</p>"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1091",
+							"indicator": "5"
 						}
 					]
 				},
@@ -296,6 +306,11 @@
 						{
 							"type": "code",
 							"code": "~~~python \ndef signup(request) :\n    if request.method == 'GET' :\n        form =\n\n    elif request.method == 'POST' :\n        form =\n        if form.is_valid() :\n            '''코드작성'''\n\n            return HttpResponse(\"로그인 성공\")\n    \n    return render(request, 'account/signup.html', {'form':form})\n ~~~"
+						},
+						{
+							"type": "link",
+							"textbook_id": "1093",
+							"indicator": "13"
 						}
 					]
 				},
