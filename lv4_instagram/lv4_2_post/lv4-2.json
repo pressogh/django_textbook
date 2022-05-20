@@ -233,10 +233,6 @@
 						{
 							"type": "desc",
 							"description": "<p>모델을 생성했다면, migration을 하여 db에 적용합니다.</p><p><br></p>"
-						},
-						{
-							"type": "code",
-							"code": "~~~python \npython manage.py makemigrations\n\npython manage.py migrate\n ~~~"
 						}
 					]
 				},
@@ -312,7 +308,7 @@
 						},
 						{
 							"type": "code",
-							"code": "~~~html \n<!-- 생략 -->\n<body>\n    <div class=\"header-container\">\n        {% include \"post/header.html\" %}\n    </div>\n    <div>\n        {% block content %}\n        {% endblock }\n    </div>\n</body>\n</html>\n ~~~"
+							"code": "~~~python \n% extends \"post/base.html\" %}\n\n{% block content %}\n\n<div class=\"new-post\">\n    <div>\n        Create Post\n    </div>\n\n    <div class=\"form-container\">\n        <form action=\"{% url 'post:new_post' %}\"\n              method=\"post\"\n              enctype=\"multipart/form-data\">\n            # csfr 추가    \n            {{ form.as_p }}\n            <input type=\"submit\" value=\"Create\">\n        </form>\n    </div>\n</div>\n\n{% endblock content %}\n ~~~"
 						},
 						{
 							"type": "desc",

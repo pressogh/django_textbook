@@ -44,4 +44,3 @@ def new_post(request) :
     
     else :
       return redirect('account:login')
-

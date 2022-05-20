@@ -6,20 +6,6 @@
     <div class="d-flex justify-content-between align-items-end">
         <h2 class="py-5">{{ post.title }}</h2>
         <div>
-            <form method="post" action="{% url 'boardapp:post_like' post.id %}">
-                {% csrf_token %}
-                {% if user in post.likes_user.all %}
-                <button class="btn btn-primary">
-                    추천
-                    <span class="badge bg-danger rounded-pill bg-success">{{ post.likes_user.count }}</span>
-                </button>
-                {% else %}
-                <button class="btn btn-outline-primary">
-                    추천
-                    <span class="badge bg-danger rounded-pill bg-success">{{ post.likes_user.count }}</span>
-                </button>
-                {% endif %}
-            </form>
             <div class="badge bg-light text-dark p-2">{{ post.author.username }}</div>
         </div>
     </div>
@@ -42,21 +28,6 @@
                         {% if user == comment.author %}
                         <button class="btn btn-sm btn-danger mx-3" onclick="location.href='{% url 'boardapp:comment_delete' post.id comment.id %}'">삭제하기</button>
                         {% endif %}
-
-                        <form method="post" action="{% url 'boardapp:comment_like' post.id comment.id %}">
-                            {% csrf_token %}
-                            {% if user in comment.likes_user.all %}
-                            <button class="btn btn-primary">
-                                추천
-                                <span class="badge bg-danger rounded-pill bg-success">{{ comment.likes_user.count }}</span>
-                            </button>
-                            {% else %}
-                            <button class="btn btn-outline-primary">
-                                추천
-                                <span class="badge bg-danger rounded-pill bg-success">{{ comment.likes_user.count }}</span>
-                            </button>
-                            {% endif %}
-                        </form>
                     </div>
                 </div>
             </div>
